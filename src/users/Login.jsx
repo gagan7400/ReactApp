@@ -1,6 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { LoginUser } from '../redux/actions/userAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    let dispatch = useDispatch();
+    let nav = useNavigate()
+    let { user, error, loading } = useSelector(state => state.userReducer);
+    console.log(user, error, loading)
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -13,8 +20,14 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Login data:', formData);
+        dispatch(LoginUser(formData))
     };
+
+    useEffect(() => {
+        if (!error && !loading && user) {
+            nav("/")
+        }
+    }, [user])
 
     return (
         <div className="min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-blue-950 px-4 py-10 text-white">

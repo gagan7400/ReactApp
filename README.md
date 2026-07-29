@@ -1,3 +1,9 @@
+to use the json-server use the json-server package
+npm i json-server
+npx json-server db.json   
+this command run the server on port3000
+db.json is a file which is created in the main directory,
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

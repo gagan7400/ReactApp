@@ -1,7 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 
 export default function Navbar() {
+
+    let { user, error, loading } = useSelector(state => state.userReducer);
     return (
         <div className="max-lg:collapse bg-base-200 fixed top-0 z-1000  shadow-sm w-full rounded-md">
             <input id="navbar-1-toggle" className="peer hidden" type="checkbox" />
@@ -18,8 +21,12 @@ export default function Navbar() {
                         <li><NavLink to="/about">About</NavLink></li>
                         <li><NavLink to="/services">Services</NavLink></li>
                         <li><NavLink to="/contact">Contact</NavLink></li>
-                        <li><NavLink to="/login">Login</NavLink></li>
-                        <li><NavLink to="/registration">Registration</NavLink></li>
+                        {user ? <li> <NavLink to="/profile">Profile</NavLink> </li>
+                            :
+                            <>
+                                <li><NavLink to="/login">Login</NavLink></li>
+                                <li><NavLink to="/registration">Registration</NavLink></li>
+                            </>}
                         <li><NavLink to="/addtodo">Addtodo</NavLink></li>
                         <li><NavLink to="/alltodos">Alltodos</NavLink></li>
                         <li><NavLink to="/updatetodo">Updatetodo</NavLink></li>

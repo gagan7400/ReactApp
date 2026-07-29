@@ -1,0 +1,28 @@
+{
+  "todos": [],
+  "users": [
+    {
+      "name": "Gagan",
+      "email": "gagan@gmail.com",
+      "password": "123456",
+      "profileImageUrl": "https://strapi.dhiwise.com/uploads/json_server_OG_Image_1204ba9dae.png",
+      "gender": "male",
+      "age": "56",
+      "phonenumber": "6565656565",
+      "address": "indore",
+      "id": "bWtk95sU0qw"
+    },
+    {
+      "name": "Naman",
+      "email": "naman@gmail.com",
+      "password": "123456",
+      "profileImageUrl": "https://tse1.mm.bing.net/th/id/OIP.--iNuz4yLO-MW5q5FpZ_SwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "gender": "male",
+      "age": "45",
+      "phonenumber": "4545454545",
+      "address": "indore",
+      "id": "jfG8a9pn7oc"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

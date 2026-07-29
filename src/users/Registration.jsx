@@ -1,6 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '../redux/actions/userAction';
 
 const Registration = () => {
+    let dispatch = useDispatch();
+    let nav = useNavigate()
+    let { user, error, loading } = useSelector(state => state.userReducer)
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -17,11 +23,17 @@ const Registration = () => {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Registration data:', formData);
+        dispatch(registerUser(formData));
     };
 
+
+    useEffect(() => {
+        if (!error && !loading && user) {
+            nav("/")
+        }
+    }, [user])
     return (
         <div className="min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-blue-950 px-4 py-10 text-white">
             <div className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-slate-900/70 p-8 shadow-2xl shadow-blue-950/40 backdrop-blur-sm">

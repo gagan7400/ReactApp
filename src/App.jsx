@@ -10,6 +10,7 @@ import Login from "./users/Login.jsx";
 import Addtodo from "./todo/Addtodo.jsx";
 import Alltodos from "./todo/Alltodos.jsx";
 import UpdateTodo from "./todo/UpdateTodo.jsx";
+import Profile from "./users/Profile.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
         <Route path="/addtodo" element={<Addtodo />} />
