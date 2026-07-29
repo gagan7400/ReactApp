@@ -18,6 +18,11 @@ export default function Navbar() {
                         <li><NavLink to="/about">About</NavLink></li>
                         <li><NavLink to="/services">Services</NavLink></li>
                         <li><NavLink to="/contact">Contact</NavLink></li>
+                        <li><NavLink to="/login">Login</NavLink></li>
+                        <li><NavLink to="/registration">Registration</NavLink></li>
+                        <li><NavLink to="/addtodo">Addtodo</NavLink></li>
+                        <li><NavLink to="/alltodos">Alltodos</NavLink></li>
+                        <li><NavLink to="/updatetodo">Updatetodo</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
