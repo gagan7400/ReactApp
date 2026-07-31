@@ -1,34 +1,16 @@
-const Alltodos = () => {
-    const todos = [
-        {
-            id: 1,
-            taskName: 'Design Homepage',
-            taskDate: '2026-07-29',
-            taskDeadline: '2026-08-02',
-            taskDescription: 'Create the landing page layout and wire up the hero section.',
-            taskPriority: 'P0',
-            status: 'pending',
-        },
-        {
-            id: 2,
-            taskName: 'Prepare API Integration',
-            taskDate: '2026-07-30',
-            taskDeadline: '2026-08-05',
-            taskDescription: 'Connect the frontend to the backend endpoints for todo management.',
-            taskPriority: 'P1',
-            status: 'complete',
-        },
-        {
-            id: 3,
-            taskName: 'Write Unit Tests',
-            taskDate: '2026-07-31',
-            taskDeadline: '2026-08-06',
-            taskDescription: 'Add tests for the main todo CRUD actions.',
-            taskPriority: 'P2',
-            status: 'uncomplete',
-        },
-    ];
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
+const Alltodos = () => {
+    const [todos, setTodos] = useState([])
+    let { user } = useSelector(state => state.userReducer);
+
+    let getTodos = async () => {
+        let data = await fetch("http://localhost:3000/todos/?createdBy=" + user?.id);
+        let res = await data.json();
+        setTodos([...res])
+        console.log(res)
+    }
     const statusColors = {
         pending: 'bg-yellow-100 text-yellow-800',
         complete: 'bg-green-100 text-green-800',
@@ -40,9 +22,13 @@ const Alltodos = () => {
         P1: 'bg-blue-600 text-white',
         P2: 'bg-gray-600 text-white',
     };
+    useEffect(() => {
+        getTodos()
+    }, [])
 
     return (
         <div className="min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-blue-950 px-4 py-10 text-white">
+
             <div className="mx-auto max-w-6xl">
                 <div className="mb-8 text-center">
                     <h2 className="text-3xl font-bold text-white">All Todos</h2>

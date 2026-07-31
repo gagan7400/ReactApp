@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../redux/actions/userAction';
+import { useNavigate } from 'react-router-dom';
 
 const Registration = () => {
     let dispatch = useDispatch();

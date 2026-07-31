@@ -23,12 +23,11 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/db.json" element={<Error />} />
         <Route path="/addtodo" element={<Addtodo />} />
         <Route path="/alltodos" element={<Alltodos />} />
         <Route path="/updatetodo" element={<UpdateTodo />} />
         <Route path="*" element={<Error />} />
-
-
       </Routes>
     </Layout>
   )

@@ -1,5 +1,59 @@
 {
-  "todos": [],
+  "currentuser": {
+    "user": {
+      "name": "Gagan",
+      "email": "gagan@gmail.com",
+      "password": "123456",
+      "profileImageUrl": "https://strapi.dhiwise.com/uploads/json_server_OG_Image_1204ba9dae.png",
+      "gender": "male",
+      "age": "56",
+      "phonenumber": "6565656565",
+      "address": "indore",
+      "id": "bWtk95sU0qw"
+    }
+  },
+  "todos": [
+    {
+      "taskName": "Morning walk",
+      "taskDate": "2026-07-31",
+      "taskDeadline": "2026-07-31",
+      "taskDescription": "Running and walking",
+      "taskPriority": "P1",
+      "status": "pending",
+      "createdBy": "bWtk95sU0qw",
+      "id": "i66aujf5MwQ"
+    },
+    {
+      "taskName": "drink 4L of water",
+      "taskDate": "2026-07-31",
+      "taskDeadline": "2026-07-31",
+      "taskDescription": "drink water",
+      "taskPriority": "P0",
+      "status": "pending",
+      "createdBy": "bWtk95sU0qw",
+      "id": "mzDZn0qtIy4"
+    },
+    {
+      "taskName": "work on project",
+      "taskDate": "2026-07-31",
+      "taskDeadline": "2026-07-31",
+      "taskDescription": "work on project",
+      "taskPriority": "P0",
+      "status": "pending",
+      "createdBy": "jfG8a9pn7oc",
+      "id": "qLjsUyAPE2E"
+    },
+    {
+      "taskName": "bike riding",
+      "taskDate": "2026-07-31",
+      "taskDeadline": "2026-07-31",
+      "taskDescription": "ride bike",
+      "taskPriority": "P1",
+      "status": "pending",
+      "createdBy": "bWtk95sU0qw",
+      "id": "sMLJwPszEtk"
+    }
+  ],
   "users": [
     {
       "name": "Gagan",

@@ -26,9 +26,13 @@ export let LoginUser = (user) => {
                 await dispatch({ type: "Error", payload: res.error })
             }
             let findUser = res.find((a) => { return a.email == user.email && a.password == user.password })
-            console.log(findUser)
             if (findUser) {
-                console.log("findUser", true);
+                let updateuser = await fetch("http://localhost:3000/currentuser", {
+                    method: "PUT",
+                    body: JSON.stringify({ user: findUser })
+                })
+                let resuser = await updateuser.json();
+                console.log(resuser);
                 await dispatch({ type: "RegisterUser", payload: findUser })
             } else {
                 console.log("findUser", false);
@@ -41,5 +45,29 @@ export let LoginUser = (user) => {
 }
 
 export let logout = () => {
-    return { type: "Logout" }
+    return async (dispatch) => {
+        try {
+            let updateuser = await fetch("http://localhost:3000/currentuser", {
+                method: "PUT",
+                body: JSON.stringify({ user: null })
+            })
+            let resuser = await updateuser.json();
+            await dispatch({ type: "Logout" })
+        } catch (error) {
+            await dispatch({ type: "Error", payload: error.message })
+        }
+    }
+
+}
+
+export let getprofile = () => {
+    return async (dispatch) => {
+        try {
+            let data = await fetch("http://localhost:3000/currentuser");
+            let res = await data.json();
+            await dispatch({ type: "RegisterUser", payload: res.user })
+        } catch (error) {
+            await dispatch({ type: "Error", payload: error.message })
+        }
+    }
 }

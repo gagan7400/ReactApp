@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const Addtodo = () => {
+    let { user } = useSelector(state => state.userReducer)
     const [formData, setFormData] = useState({
         taskName: '',
         taskDate: '',
@@ -15,9 +17,14 @@ const Addtodo = () => {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Todo data:', formData);
+        let data = await fetch("http://localhost:3000/todos", {
+            method: "POST",
+            body: JSON.stringify({ ...formData, createdBy: user.id })
+        });
+        let res =await  data.json();
+        console.log(res)
     };
 
     return (
